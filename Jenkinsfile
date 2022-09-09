@@ -17,8 +17,8 @@ mvn package'''
 
     stage('Docker build') {
       steps {
-        sh '''docker-compose build 
-docker-compose up -d '''
+        sh '''docker compose build 
+docker compose up -d '''
       }
     }
 
