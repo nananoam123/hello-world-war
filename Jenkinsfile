@@ -22,5 +22,13 @@ docker compose up -d '''
       }
     }
 
+    stage('tag') {
+      steps {
+        sh '''docker tag wordpress:latest wordpress:$(docker images | grep wordpress | awk \'{print $3}\')
+
+docker tag mysql:5.7 mysql:$(docker images | grep mysql | awk \'{print $3}\')'''
+      }
+    }
+
   }
 }
