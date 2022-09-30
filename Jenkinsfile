@@ -15,18 +15,13 @@ mvn package'''
       }
     }
 
-    stage('Docker build') {
+    stage('clone repo') {
       steps {
-        sh '''docker compose build 
-docker compose up -d '''
-      }
-    }
-
-    stage('tag') {
-      steps {
-        sh '''docker tag wordpress:latest wordpress:$(docker images | grep wordpress | awk \'{print $3}\')
-
-docker tag mysql:5.7 mysql:$(docker images | grep mysql | awk \'{print $3}\')'''
+        sh '''git clone https://github.com/nananoam123/N-E-A-infra.git
+cd N-E-A-infra'''
+        sh '''git checkout dev
+cp Dockerfile /opt/tomcat/.jenkins/workspace/hello-world-war_master/.
+'''
       }
     }
 
