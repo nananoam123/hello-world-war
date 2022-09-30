@@ -22,7 +22,9 @@ mvn package'''
 cd N-E-A-infra'''
         sh '''git config --global --add safe.directory /opt/tomcat/.jenkins/workspace/hello-world-war_master/N-E-A-infra
 '''
-        sh 'git checkout 184bd83fc793c5160aa83b10eed1ec09a4369753'
+        sh '''git remote update 
+git fetch
+git checkout --track origin/dev'''
         sh '''cp Dockerfile /opt/tomcat/.jenkins/workspace/hello-world-war_master/.
 '''
       }
