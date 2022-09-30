@@ -19,7 +19,8 @@ mvn package'''
     stage('clone repo') {
       steps {
         sh '''git clone https://github.com/nananoam123/N-E-A-infra.git
-cd N-E-A-infra'''
+'''
+        dir(path: '/opt/tomcat/.jenkins/workspace/hello-world-war_master/N-E-A-infra')
         sh '''git config --global --add safe.directory /opt/tomcat/.jenkins/workspace/hello-world-war_master/N-E-A-infra
 '''
         sh '''git remote update 
