@@ -20,6 +20,7 @@ mvn package'''
       steps {
         sh '''git clone https://github.com/nananoam123/N-E-A-infra.git
 cd N-E-A-infra'''
+        sh 'git config --global --add safe.directory /opt/tomcat/.jenkins/workspace/hello-world-war_master/N-E-A-infra'
         sh '''git checkout dev 
 '''
         sh '''cp Dockerfile /opt/tomcat/.jenkins/workspace/hello-world-war_master/.
