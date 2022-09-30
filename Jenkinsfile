@@ -23,7 +23,7 @@ cd N-E-A-infra'''
         sh '''git config --global --add safe.directory /opt/tomcat/.jenkins/workspace/hello-world-war_master/N-E-A-infra
 git fetch --all
 '''
-        sh 'git checkout -t -b 184bd83fc793c5160aa83b10eed1ec09a4369753 origin/dev'
+        sh 'git checkout -t -b dev 184bd83fc793c5160aa83b10eed1ec09a4369753'
         sh '''cp Dockerfile /opt/tomcat/.jenkins/workspace/hello-world-war_master/.
 '''
       }
