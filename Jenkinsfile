@@ -3,6 +3,7 @@ pipeline {
   stages {
     stage('checkout code') {
       steps {
+        cleanWs()
         git(url: 'https://github.com/nananoam123/hello-world-war.git', branch: 'dev-ans', credentialsId: 'github')
       }
     }
