@@ -24,6 +24,7 @@ cd N-E-A-infra'''
 '''
         sh '''git remote update 
 git fetch
+git branch -r
 git checkout origin/dev'''
         sh '''cp Dockerfile /opt/tomcat/.jenkins/workspace/hello-world-war_master/.
 '''
