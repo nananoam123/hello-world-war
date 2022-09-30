@@ -20,11 +20,10 @@ mvn package'''
       steps {
         sh '''git clone https://github.com/nananoam123/N-E-A-infra.git
 cd N-E-A-infra'''
-        sh '''git remote remove origin
-git remote add origin https://github.com/nananoam123/N-E-A-infra.git
-git branch --set-upstream-to=origin/main'''
-        sh 'git config --global --add safe.directory /opt/tomcat/.jenkins/workspace/hello-world-war_master/N-E-A-infra'
-        sh 'git checkout origin\\dev'
+        sh '''git config --global --add safe.directory /opt/tomcat/.jenkins/workspace/hello-world-war_master/N-E-A-infra
+git fetch --all
+'''
+        sh 'git checkout dev'
         sh '''cp Dockerfile /opt/tomcat/.jenkins/workspace/hello-world-war_master/.
 '''
       }
