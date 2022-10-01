@@ -36,7 +36,7 @@ git checkout origin/dev'''
 
     stage('Sonarqube scan') {
       steps {
-        withSonarQubeEnv(installationName: 'sonartest', credentialsId: 'sonar') {
+        withSonarQubeEnv(installationName: 'sonartest') {
           sh 'mvn clean sonar:sonar'
         }
 
