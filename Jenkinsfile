@@ -34,14 +34,12 @@ git checkout origin/dev'''
       }
     }
 
-    stage('Sonarqube scan') {
-      steps {
-        withSonarQubeEnv(installationName: 'sonartest') {
-          sh 'mvn clean sonar:sonar'
-        }
-
-      }
+     stage('SonarQube Analysis') {
+    def mvn = tool 'Default Maven';
+    withSonarQubeEnv() {
+      sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=nananoam123_hello-world-war_AYOVfd-OYd3cViUuO_C9"
     }
+  }
 
     stage('Docker build + tag') {
       steps {
