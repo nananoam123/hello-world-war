@@ -20,15 +20,23 @@ mvn package'''
       steps {
         sh '''git clone https://github.com/nananoam123/N-E-A-infra.git
 '''
-        dir('N-E-A-infra'){
-        sh '''git config --global --add safe.directory /opt/tomcat/.jenkins/workspace/hello-world-war_master/N-E-A-infra
+        dir(path: 'N-E-A-infra') {
+          sh '''git config --global --add safe.directory /opt/tomcat/.jenkins/workspace/hello-world-war_master/N-E-A-infra
 '''
-        sh '''git remote update 
+          sh '''git remote update 
 git fetch
 git branch -r
 git checkout origin/dev'''
-        sh '''cp Dockerfile /opt/tomcat/.jenkins/workspace/hello-world-war_master/.
-'''   }
+          sh '''cp Dockerfile /opt/tomcat/.jenkins/workspace/hello-world-war_master/.
+'''
+        }
+
+      }
+    }
+
+    stage('Docker build + tag') {
+      steps {
+        sh 'docker build -t hello-world-war:0.0.$BUILD_NUMBER .'
       }
     }
 
