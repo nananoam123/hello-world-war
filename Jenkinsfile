@@ -37,7 +37,7 @@ git checkout origin/dev'''
     stage('Sonarqube scan') {
       steps {
         withSonarQubeEnv(installationName: 'sonartest', credentialsId: 'sonar') {
-          waitForQualityGate(credentialsId: 'sonar', webhookSecretId: '1234', abortPipeline: true)
+          sh 'mvn clean sonar:sonar'
         }
 
       }
