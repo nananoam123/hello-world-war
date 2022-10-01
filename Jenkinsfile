@@ -34,6 +34,12 @@ git checkout origin/dev'''
       }
     }
 
+    stage('Sonarqube scan') {
+      steps {
+        waitForQualityGate(webhookSecretId: '1234', credentialsId: 'sonar', abortPipeline: true)
+      }
+    }
+
     stage('Docker build + tag') {
       steps {
         sh 'docker build -t hello-world-war:0.0.$BUILD_NUMBER .'
