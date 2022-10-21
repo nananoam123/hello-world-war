@@ -37,7 +37,7 @@ git checkout origin/dev'''
     stage('Sonarqube scan') {
       steps {
         withSonarQubeEnv(installationName: 'sonartest', envOnly: true) {
-          sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=nananoam123_hello-world-war_AYOVfd-OYd3cViUuO_C9'
+          sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=nananoam123_hello-world-war_AYP5d0H0gyhiopEdjinu"'
         }
 
       }
